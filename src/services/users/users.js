@@ -51,7 +51,18 @@ export const user = (app) => {
       remove: []
     },
     after: {
-      all: []
+      all: [
+        async (context) => {
+          // Modify the result
+          context.result.modified = true
+
+          // You can also modify specific fields, add new data, etc.
+          context.result.additionalData = 'Some extra data'
+
+          // Return the context to continue the processing chain
+          return context
+        }
+      ]
     },
     error: {
       all: []

@@ -20,5 +20,7 @@ export const createClient = (connection, authenticationOptions = {}) => {
 
   client.configure(userClient)
 
+  client.configure(foodClient)
+
   return client
 }
